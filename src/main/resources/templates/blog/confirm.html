@@ -14,5 +14,10 @@
     <h2>投稿内容</h2>
     <div th:text="${blogForm.content}"></div>
   </div>
+  <form role="form" action="/blog/regist" th:action="@{/blog/regist}" th:object="${blogForm}" method="POST">
+    <button role="button">登録</button>
+    <input type="hidden" id="title" name="title" th:field="*{title}" />
+    <input type="hidden" id="content" name="content" th:field="*{content}" />
+  </form>
 </body>
 </html>

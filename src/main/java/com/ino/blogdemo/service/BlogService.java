@@ -26,4 +26,10 @@ public class BlogService {
 		Map<String, Object> obj = blogMapper.getBlogDetail(id);
 		return obj;
 	}
+	
+	@Transactional
+	public void insert(String title, String content) {
+		blogMapper.insert(title, content);
+	}
+	
 }

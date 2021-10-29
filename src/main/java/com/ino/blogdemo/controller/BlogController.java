@@ -49,6 +49,14 @@ public class BlogController {
     	return "/blog/confirm";
     }
     
+    @RequestMapping(value = "/blog/regist")
+    public String blogRegist(BlogForm form) {
+    	/** DBへデータを登録 */
+    	blogService.insert(form.getTitle(), form.getContent());
+    	/** 記事一覧へページ遷移 */
+    	return "redirect:/blog";
+    }
+    
     @RequestMapping(value = "/blog/detail/{id}")
     public String blogDetail(@PathVariable("id") int id, Model model) {
     	/** DBより記事の詳細な情報を取得 */
