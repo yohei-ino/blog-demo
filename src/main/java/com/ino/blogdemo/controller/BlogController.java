@@ -43,6 +43,12 @@ public class BlogController {
     	return "/blog/post";
     }
     
+    @RequestMapping(value = "/blog/confirm")
+    public String blogConfirm(BlogForm form, Model model) {
+    	model.addAttribute("blogForm", form);
+    	return "/blog/confirm";
+    }
+    
     @RequestMapping(value = "/blog/detail/{id}")
     public String blogDetail(@PathVariable("id") int id, Model model) {
     	/** DBより記事の詳細な情報を取得 */
