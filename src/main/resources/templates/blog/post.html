@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>記事投稿</title>
+</head>
+<body>
+	<h1>記事投稿</h1>
+	<form role="form" th:action="@{/blog/confirm}" th:objecct="${blogForm}"
+		method="POST">
+		<div>
+			<h2>タイトル</h2>
+			<textarea id="title" name="title" placeholder="記事のタイトルを入力して下さい。"></textarea>
+		</div>
+		<div>
+			<h2>投稿内容</h2>
+			<textarea id="content" name="content" placeholder="投稿内容を入力して下さい。"></textarea>
+		</div>
+		<button role="button">確認</button>
+	</form>
+</body>
+</html>

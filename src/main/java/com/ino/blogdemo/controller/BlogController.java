@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ino.blogdemo.form.BlogForm;
 import com.ino.blogdemo.service.BlogService;
 
 @Controller
@@ -33,6 +34,13 @@ public class BlogController {
     	List<Map<String, Object>> blogList = blogService.getBlogList();
     	model.addAttribute("blogList", blogList);
     	return "/blog/index";
+    }
+    
+    @RequestMapping(value = "/blog/post")
+    public String blogPost(Model model) {
+    	BlogForm blogForm = new BlogForm();
+    	model.addAttribute("blogForm", blogForm);
+    	return "/blog/post";
     }
     
     @RequestMapping(value = "/blog/detail/{id}")

@@ -6,6 +6,7 @@
 </head>
 <body>
   <h1>Blog</h1>
+  <a th:href="@{/blog/post}" role="button">新規投稿</a>
   <ul th:each="record : ${blogList}" th:inline="text">
     <li><span th:text="${record.title}"></span></li>
   </ul>
