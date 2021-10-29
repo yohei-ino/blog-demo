@@ -20,4 +20,10 @@ public class BlogService {
 		List<Map<String, Object>> blogList = blogMapper.getBlogList();
     	return blogList;
     }
+	
+	@Transactional
+	public Map<String, Object> getBlogDetail(int id) {
+		Map<String, Object> obj = blogMapper.getBlogDetail(id);
+		return obj;
+	}
 }
