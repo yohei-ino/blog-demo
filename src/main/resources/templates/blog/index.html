@@ -6,5 +6,8 @@
 </head>
 <body>
   <h1>Blog</h1>
+  <ul th:each="record : ${blogList}" th:inline="text">
+    <li><span th:text="${record.title}"></span></li>
+  </ul>
 </body>
 </html>
