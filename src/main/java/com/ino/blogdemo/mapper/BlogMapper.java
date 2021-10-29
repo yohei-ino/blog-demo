@@ -10,4 +10,7 @@ import org.apache.ibatis.annotations.Select;
 public interface BlogMapper {
 	@Select("SELECT id, title, content FROM blog_contents")
 	List<Map<String, Object>> getBlogList();
+	
+	@Select("SELECT id, title, content FROM blog_contents WHERE id=#{id}")
+	Map<String, Object> getBlogDetail(int id);
 }
