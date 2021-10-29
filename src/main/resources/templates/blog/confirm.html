@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.themeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>投稿内容の確認</title>
+</head>
+<body>
+  <h1>投稿内容の確認</h1>
+  <div>
+    <h2>タイトル</h2>
+    <div th:text="${blogForm.title}"></div>
+  </div>
+  <div>
+    <h2>投稿内容</h2>
+    <div th:text="${blogForm.content}"></div>
+  </div>
+  <form role="form" action="/blog/regist" th:action="@{/blog/regist}" th:object="${blogForm}" method="POST">
+    <button role="button">登録</button>
+    <input type="hidden" id="title" name="title" th:field="*{title}" />
+    <input type="hidden" id="content" name="content" th:field="*{content}" />
+  </form>
+</body>
+</html>

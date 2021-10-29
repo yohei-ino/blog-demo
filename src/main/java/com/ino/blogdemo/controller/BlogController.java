@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ino.blogdemo.form.BlogForm;
 import com.ino.blogdemo.service.BlogService;
 
 @Controller
@@ -33,6 +34,27 @@ public class BlogController {
     	List<Map<String, Object>> blogList = blogService.getBlogList();
     	model.addAttribute("blogList", blogList);
     	return "/blog/index";
+    }
+    
+    @RequestMapping(value = "/blog/post")
+    public String blogPost(Model model) {
+    	BlogForm blogForm = new BlogForm();
+    	model.addAttribute("blogForm", blogForm);
+    	return "/blog/post";
+    }
+    
+    @RequestMapping(value = "/blog/confirm")
+    public String blogConfirm(BlogForm form, Model model) {
+    	model.addAttribute("blogForm", form);
+    	return "/blog/confirm";
+    }
+    
+    @RequestMapping(value = "/blog/regist")
+    public String blogRegist(BlogForm form) {
+    	/** DBへデータを登録 */
+    	blogService.insert(form.getTitle(), form.getContent());
+    	/** 記事一覧へページ遷移 */
+    	return "redirect:/blog";
     }
     
     @RequestMapping(value = "/blog/detail/{id}")
