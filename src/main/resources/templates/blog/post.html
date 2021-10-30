@@ -12,15 +12,21 @@
 			<div class="col"></div>
 			<div class="col-8">
 				<h1>記事投稿</h1>
-				<form role="form" th:action="@{/blog/confirm}" th:objecct="${blogForm}"
+				<form role="form" th:action="@{/blog/confirm}" th:object="${blogForm}"
 					method="POST">
 					<div>
 						<h2>タイトル</h2>
-						<textarea id="title" name="title" placeholder="記事のタイトルを入力して下さい。" class="form-control"></textarea>
+						<textarea id="title" name="title" th:field="*{title}" placeholder="記事のタイトルを入力して下さい。" class="form-control"></textarea>
+						<div th:if="${#fields.hasErrors('title')}">
+						  <span th:errors="*{title}"></span>
+						</div>
 					</div>
 					<div>
 						<h2>投稿内容</h2>
-						<textarea id="content" name="content" placeholder="投稿内容を入力して下さい。" class="form-control" rows="10"></textarea>
+						<textarea id="content" name="content" th:field="*{content}" placeholder="投稿内容を入力して下さい。" class="form-control" rows="10"></textarea>
+						<div th:if="${#fields.hasErrors('content')}">
+						  <span th:errors="*{content}"></span>
+						</div>
 					</div>
 					<button role="button" class="btn btn-primary">確認</button>
 				</form>

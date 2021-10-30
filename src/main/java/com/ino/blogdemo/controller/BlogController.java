@@ -48,7 +48,7 @@ public class BlogController {
     @RequestMapping(value = "/blog/confirm")
     public String blogConfirm(@Validated BlogForm form, BindingResult result, Model model) {
     	if (result.hasErrors()) {
-    		return "redirect:/blog/post";
+    		return "/blog/post";
     	}
     	model.addAttribute("blogForm", form);
     	return "/blog/confirm";
