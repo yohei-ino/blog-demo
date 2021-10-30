@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.themeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>投稿内容の確認</title>
+	<meta charset="UTF-8">
+	<title>投稿内容の確認</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>投稿内容の確認</h1>
-  <div>
-    <h2>タイトル</h2>
-    <div th:text="${blogForm.title}"></div>
-  </div>
-  <div>
-    <h2>投稿内容</h2>
-    <div th:text="${blogForm.content}"></div>
-  </div>
-  <form role="form" action="/blog/regist" th:action="@{/blog/regist}" th:object="${blogForm}" method="POST">
-    <button role="button">登録</button>
-    <input type="hidden" id="title" name="title" th:field="*{title}" />
-    <input type="hidden" id="content" name="content" th:field="*{content}" />
-  </form>
+	<div class="container">
+		<div class="row">
+			<div class="col"></div>
+			<div class="col-8">
+				<h1>投稿内容の確認</h1>
+				<div>
+					<h2>タイトル</h2>
+					<div th:text="${blogForm.title}"></div>
+				</div>
+				<div>
+					<h2>投稿内容</h2>
+					<div th:text="${blogForm.content}"></div>
+				</div>
+				<form role="form" action="/blog/regist" th:action="@{/blog/regist}" th:object="${blogForm}" method="POST">
+					<button role="button" class="btn btn-primary">登録</button>
+					<input type="hidden" id="title" name="title" th:field="*{title}" />
+					<input type="hidden" id="content" name="content" th:field="*{content}" />
+				</form>
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
 </body>
 </html>
